@@ -31,8 +31,8 @@ body{
     position: relative;
     width: 100%;
     height: 60px;
-    background-color: rgba(255, 255, 255, 0.042);
-    backdrop-filter: blur(9px);
+    background-color: rgba(255, 255, 255, 0.067);
+    backdrop-filter: blur(5px);
     transition: height .4s ease;
 }
 /* LOGO */
@@ -113,25 +113,37 @@ body{
     height: 60px;
     padding:0 10px;
     align-items: center;
-    color: rgb(0, 0, 0);
-    font-size: large;
+    color: #fff;
+    font-size: 16px;
     font-weight: 600;
     transition: .55s;
+    position: relative;
 }
 .header .container .navbar ul li a.active,
 .header .container .navbar ul li a:hover{
-    color: #fff;
-    text-shadow: 0 0 5px #fff;
+    text-shadow: 0 0 5px #fff,
+    0 0 10px #fff;
 }
-.action{
+.header .container .navbar ul li a::before{
+    content: '';
     position: absolute;
-    width: 40px;
-    height: 40px;
-    border-radius: 20px;
-    top: 10px;
-    background-image: linear-gradient(to right bottom,rgb(255, 247, 5),rgb(253, 14, 74));
-    z-index: -1;
-    transition: .3s ease;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background-color: #fff;
+    transition: all .2s ease-in;
+}
+.header .container .navbar ul li a.active::before,
+.header .container .navbar ul li a:hover::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 2px;
 }
 .home{
     height:100vh  ;
@@ -212,8 +224,5 @@ body{
         display: block;
         width: 100%;
         height: auto;
-    }
-    .action{
-        top: 70px;
     }
 }

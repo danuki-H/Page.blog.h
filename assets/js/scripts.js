@@ -1,5 +1,4 @@
 let navLinks = document.querySelectorAll(".nav-item a");
-let action = document.getElementById('action');
 function containsClassName(){
     window.requestAnimationFrame(containsClassName);
     navLinks.forEach(navLink => {
@@ -8,19 +7,12 @@ function containsClassName(){
          */
         let hash = navLink.hash;
         let section = document.querySelector(hash);
-        let position = window.scrollY + 200;
+        let position = window.scrollY + 120;
         if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
             navLink.classList.add('active');
           } else {
             navLink.classList.remove('active');
           }
-        /**
-         * ANIMATION của element .action
-         */
-        if(navLink.classList.contains('active') == true ){
-            action.style.transform = 'translate('+navLink.offsetLeft+'px,'+navLink.offsetTop+'px)';
-            action.style.width = navLink.offsetWidth+'px';
-        }
         /**
          * Xóa class name 'active' của header container và nav toggle khi ấn vào nav
          */
